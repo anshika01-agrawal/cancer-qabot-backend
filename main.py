@@ -21,9 +21,9 @@ def ask(q: str):
     else:
         return {"answer": "Sorry, I don’t have an answer for that yet."}
 import os
-import uvicorn
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Railway ka PORT pick karega
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 
