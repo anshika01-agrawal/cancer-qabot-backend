@@ -351,7 +351,8 @@
 
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" pattern="[0-9]{10}" maxlength="10" required>
+                        <small style="color: #64748b; font-size: 12px; margin-top: 4px; display: block;">Enter 10 digit mobile number (e.g., 9876543210)</small>
                     </div>
 
                     <div class="form-row">
