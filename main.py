@@ -23,11 +23,15 @@ async def dashboard():
 
 @app.get("/login")
 async def login():
-    return FileResponse("static/login.html")
+    return FileResponse("static/auth.html")
 
 @app.get("/signup")
 async def signup():
-    return FileResponse("static/signup.html")
+    return FileResponse("static/auth.html")
+
+@app.get("/auth")
+async def auth():
+    return FileResponse("static/auth.html")
 
 # Legacy endpoint
 @app.get("/ask")
