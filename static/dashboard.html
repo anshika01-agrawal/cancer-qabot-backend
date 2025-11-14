@@ -156,13 +156,56 @@
                     <p>Personalized health advice based on your consultation</p>
                 </div>
                 <div class="recommendations-grid" id="recommendationsGrid">
-                    <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <h3>No Recommendations Yet</h3>
-                        <p>Start a conversation with the AI chatbot to get personalized health recommendations</p>
-                        <button onclick="showSection('chatbot')" class="btn-primary">Start Chat</button>
+                    <!-- Sample Recommendation Cards -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h3>Lifestyle & Wellness</h3>
+                        </div>
+                        <ul class="recommendation-list">
+                            <li>Maintain regular sleep schedule (7-8 hours daily)</li>
+                            <li>Stay hydrated - drink at least 8 glasses of water</li>
+                            <li>Practice stress management techniques</li>
+                            <li>Regular physical activity (30 mins daily)</li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <h3>Dietary Advice</h3>
+                        </div>
+                        <ul class="recommendation-list">
+                            <li>Include more fruits and vegetables in diet</li>
+                            <li>Reduce processed and sugary foods</li>
+                            <li>Eat balanced meals at regular intervals</li>
+                            <li>Avoid late night heavy meals</li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3>Follow-up Care</h3>
+                        </div>
+                        <ul class="recommendation-list">
+                            <li>Schedule regular health check-ups</li>
+                            <li>Monitor your symptoms daily</li>
+                            <li>Keep track of vital signs</li>
+                            <li>Consult doctor if symptoms persist</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -174,12 +217,67 @@
                     <p>Evidence-based treatment suggestions for your condition</p>
                 </div>
                 <div class="treatment-grid" id="treatmentGrid">
-                    <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                        </svg>
-                        <h3>No Treatment Plans</h3>
-                        <p>Treatment plans will appear here after diagnosis</p>
+                    <!-- Sample Treatment Plan -->
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <h3>Initial Treatment Protocol</h3>
+                            <span class="treatment-badge">Active</span>
+                        </div>
+                        <div class="treatment-body">
+                            <div class="treatment-section">
+                                <h4>Phase 1: Immediate Care (Week 1-2)</h4>
+                                <ul>
+                                    <li>Rest and proper hydration</li>
+                                    <li>Prescribed medication as per schedule</li>
+                                    <li>Monitor symptoms twice daily</li>
+                                    <li>Avoid strenuous activities</li>
+                                </ul>
+                            </div>
+                            <div class="treatment-section">
+                                <h4>Phase 2: Recovery (Week 3-4)</h4>
+                                <ul>
+                                    <li>Gradual return to normal activities</li>
+                                    <li>Continue medication if advised</li>
+                                    <li>Light exercise and walking</li>
+                                    <li>Balanced nutrition focus</li>
+                                </ul>
+                            </div>
+                            <div class="treatment-section">
+                                <h4>Follow-up Schedule</h4>
+                                <ul>
+                                    <li>Week 2: Check-up consultation</li>
+                                    <li>Week 4: Progress evaluation</li>
+                                    <li>Month 2: Final assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <h3>Preventive Care Plan</h3>
+                            <span class="treatment-badge secondary">Ongoing</span>
+                        </div>
+                        <div class="treatment-body">
+                            <div class="treatment-section">
+                                <h4>Daily Routine</h4>
+                                <ul>
+                                    <li>Morning: Light exercise (yoga/walk)</li>
+                                    <li>Afternoon: Balanced meal with rest</li>
+                                    <li>Evening: Relaxation techniques</li>
+                                    <li>Night: Early sleep (before 10 PM)</li>
+                                </ul>
+                            </div>
+                            <div class="treatment-section">
+                                <h4>Health Monitoring</h4>
+                                <ul>
+                                    <li>Track blood pressure weekly</li>
+                                    <li>Maintain symptom diary</li>
+                                    <li>Record medication adherence</li>
+                                    <li>Note any unusual changes</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -190,18 +288,97 @@
                     <h1>Recommended Medicines</h1>
                     <p>Safe and effective medications for your condition</p>
                 </div>
+                <div class="warning-box" style="margin-bottom: 24px;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p>⚠️ <strong>Important:</strong> Never self-medicate. Always consult a healthcare professional before taking any medication.</p>
+                </div>
                 <div class="medicines-grid">
-                    <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                        </svg>
-                        <h3>No Medicines Prescribed</h3>
-                        <p>Medicine recommendations will be shown after consultation</p>
-                        <div class="warning-box">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                            </svg>
-                            <p>Never self-medicate. Always consult a healthcare professional before taking any medication.</p>
+                    <div class="medicine-card">
+                        <div class="medicine-header">
+                            <div class="medicine-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Paracetamol 500mg</h3>
+                                <span class="medicine-type">Pain Relief & Fever</span>
+                            </div>
+                        </div>
+                        <div class="medicine-body">
+                            <div class="medicine-info">
+                                <p><strong>Dosage:</strong> 1 tablet every 6 hours</p>
+                                <p><strong>Duration:</strong> 5 days</p>
+                                <p><strong>Timing:</strong> After meals</p>
+                            </div>
+                            <div class="medicine-instructions">
+                                <h4>Instructions:</h4>
+                                <ul>
+                                    <li>Take with water after food</li>
+                                    <li>Do not exceed 4 tablets per day</li>
+                                    <li>Avoid alcohol consumption</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="medicine-card">
+                        <div class="medicine-header">
+                            <div class="medicine-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Vitamin D3 1000IU</h3>
+                                <span class="medicine-type">Supplement</span>
+                            </div>
+                        </div>
+                        <div class="medicine-body">
+                            <div class="medicine-info">
+                                <p><strong>Dosage:</strong> 1 capsule daily</p>
+                                <p><strong>Duration:</strong> 30 days</p>
+                                <p><strong>Timing:</strong> Morning with breakfast</p>
+                            </div>
+                            <div class="medicine-instructions">
+                                <h4>Instructions:</h4>
+                                <ul>
+                                    <li>Take with a meal containing fat</li>
+                                    <li>Get 10-15 mins sunlight daily</li>
+                                    <li>Store in cool, dry place</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="medicine-card">
+                        <div class="medicine-header">
+                            <div class="medicine-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Multivitamin Complex</h3>
+                                <span class="medicine-type">Nutritional Support</span>
+                            </div>
+                        </div>
+                        <div class="medicine-body">
+                            <div class="medicine-info">
+                                <p><strong>Dosage:</strong> 1 tablet daily</p>
+                                <p><strong>Duration:</strong> 90 days</p>
+                                <p><strong>Timing:</strong> With breakfast</p>
+                            </div>
+                            <div class="medicine-instructions">
+                                <h4>Instructions:</h4>
+                                <ul>
+                                    <li>Swallow whole, do not crush</li>
+                                    <li>Maintain balanced diet</li>
+                                    <li>Stay well hydrated</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,12 +476,73 @@
                     <p>View and download your consultation history</p>
                 </div>
                 <div class="reports-grid">
-                    <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        <h3>No Reports Yet</h3>
-                        <p>Your health consultation reports will appear here</p>
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="report-content">
+                            <h3>AI Consultation Summary</h3>
+                            <p class="report-date">📅 November 10, 2025 • 10:30 AM</p>
+                            <p class="report-desc">Complete health assessment and symptom analysis</p>
+                            <div class="report-tags">
+                                <span class="tag">Consultation</span>
+                                <span class="tag">AI Analysis</span>
+                            </div>
+                        </div>
+                        <button class="btn-download">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                        <div class="report-content">
+                            <h3>Treatment Progress Report</h3>
+                            <p class="report-date">📅 November 5, 2025 • 2:15 PM</p>
+                            <p class="report-desc">Weekly progress tracking and medication adherence</p>
+                            <div class="report-tags">
+                                <span class="tag">Progress</span>
+                                <span class="tag">Treatment</span>
+                            </div>
+                        </div>
+                        <button class="btn-download">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="report-content">
+                            <h3>Lab Test Results</h3>
+                            <p class="report-date">📅 October 28, 2025 • 9:00 AM</p>
+                            <p class="report-desc">Blood work and diagnostic test outcomes</p>
+                            <div class="report-tags">
+                                <span class="tag">Lab Results</span>
+                                <span class="tag">Diagnostics</span>
+                            </div>
+                        </div>
+                        <button class="btn-download">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download
+                        </button>
                     </div>
                 </div>
             </section>
@@ -315,13 +553,85 @@
                     <h1>Consultation History</h1>
                     <p>Track your previous consultations and follow-ups</p>
                 </div>
-                <div class="history-list">
-                    <div class="empty-state">
-                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <h3>No History Yet</h3>
-                        <p>Your consultation history will be saved here</p>
+                <div class="history-timeline">
+                    <div class="history-item">
+                        <div class="history-marker"></div>
+                        <div class="history-content">
+                            <div class="history-header">
+                                <h3>AI Health Consultation</h3>
+                                <span class="history-date">November 10, 2025</span>
+                            </div>
+                            <p class="history-summary">Discussed persistent fatigue and general wellness. AI provided comprehensive health recommendations.</p>
+                            <div class="history-details">
+                                <span class="detail-badge">✓ Completed</span>
+                                <span class="detail-info">Duration: 25 mins</span>
+                                <span class="detail-info">Dr. Sarah Johnson</span>
+                            </div>
+                            <div class="history-actions">
+                                <button class="btn-link">View Details</button>
+                                <button class="btn-link">Download Report</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-marker"></div>
+                        <div class="history-content">
+                            <div class="history-header">
+                                <h3>Follow-up Consultation</h3>
+                                <span class="history-date">November 5, 2025</span>
+                            </div>
+                            <p class="history-summary">Progress review and medication adjustment. Symptoms showing improvement.</p>
+                            <div class="history-details">
+                                <span class="detail-badge">✓ Completed</span>
+                                <span class="detail-info">Duration: 15 mins</span>
+                                <span class="detail-info">Dr. Michael Chen</span>
+                            </div>
+                            <div class="history-actions">
+                                <button class="btn-link">View Details</button>
+                                <button class="btn-link">Download Report</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-marker"></div>
+                        <div class="history-content">
+                            <div class="history-header">
+                                <h3>Initial Health Assessment</h3>
+                                <span class="history-date">October 28, 2025</span>
+                            </div>
+                            <p class="history-summary">Comprehensive health check-up with lab tests. All vital signs within normal range.</p>
+                            <div class="history-details">
+                                <span class="detail-badge">✓ Completed</span>
+                                <span class="detail-info">Duration: 45 mins</span>
+                                <span class="detail-info">Dr. Emily Brown</span>
+                            </div>
+                            <div class="history-actions">
+                                <button class="btn-link">View Details</button>
+                                <button class="btn-link">Download Report</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-marker"></div>
+                        <div class="history-content">
+                            <div class="history-header">
+                                <h3>Symptom Analysis</h3>
+                                <span class="history-date">October 20, 2025</span>
+                            </div>
+                            <p class="history-summary">AI-powered symptom checker used. Recommendations provided for lifestyle modifications.</p>
+                            <div class="history-details">
+                                <span class="detail-badge">✓ Completed</span>
+                                <span class="detail-info">Duration: 10 mins</span>
+                                <span class="detail-info">AI Assistant</span>
+                            </div>
+                            <div class="history-actions">
+                                <button class="btn-link">View Details</button>
+                                <button class="btn-link">Download Report</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
