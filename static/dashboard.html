@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MediCare AI</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                    <path d="M20 12v16M12 20h16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>MediCare AI</span>
+            </div>
+            <div class="nav-right">
+                <button class="notification-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                    </svg>
+                    <span class="badge">3</span>
+                </button>
+                <div class="user-menu">
+                    <img src="https://ui-avatars.com/api/?name=User&background=667eea&color=fff" alt="User">
+                    <span>User</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#chatbot" class="menu-item active" onclick="showSection('chatbot')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                    </svg>
+                    <span>AI Chatbot</span>
+                </a>
+                <a href="#recommendations" class="menu-item" onclick="showSection('recommendations')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Recommendations</span>
+                </a>
+                <a href="#treatment" class="menu-item" onclick="showSection('treatment')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    <span>Treatment Plans</span>
+                </a>
+                <a href="#medicines" class="menu-item" onclick="showSection('medicines')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    <span>Medicines</span>
+                </a>
+                <a href="#doctors" class="menu-item" onclick="showSection('doctors')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    <span>Find Doctors</span>
+                </a>
+                <a href="#hospitals" class="menu-item" onclick="showSection('hospitals')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>Nearby Hospitals</span>
+                </a>
+                <a href="#reports" class="menu-item" onclick="showSection('reports')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span>Health Reports</span>
+                </a>
+                <a href="#history" class="menu-item" onclick="showSection('history')">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>History</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="/" class="menu-item">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chatbot Section -->
+            <section id="chatbot-section" class="content-section active">
+                <div class="section-header">
+                    <h1>AI Health Assistant</h1>
+                    <p>Describe your symptoms and get instant AI-powered analysis</p>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="welcome-message">
+                            <div class="bot-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>👋 Hello! I'm your AI Health Assistant</h3>
+                                <p>I'm here to help analyze your symptoms and provide health guidance. Please describe what you're experiencing in detail.</p>
+                                <div class="quick-chips">
+                                    <button onclick="sendQuick('I have a persistent cough and chest pain')">Respiratory Issues</button>
+                                    <button onclick="sendQuick('I am experiencing severe fatigue and weakness')">Fatigue & Weakness</button>
+                                    <button onclick="sendQuick('I found a lump and have pain')">Unusual Symptoms</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Describe your symptoms in detail..."
+                            onkeypress="handleKeyPress(event)"
+                        />
+                        <button onclick="sendMessage()" class="send-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section id="recommendations-section" class="content-section">
+                <div class="section-header">
+                    <h1>Health Recommendations</h1>
+                    <p>Personalized health advice based on your consultation</p>
+                </div>
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <div class="empty-state">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <h3>No Recommendations Yet</h3>
+                        <p>Start a conversation with the AI chatbot to get personalized health recommendations</p>
+                        <button onclick="showSection('chatbot')" class="btn-primary">Start Chat</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Treatment Section -->
+            <section id="treatment-section" class="content-section">
+                <div class="section-header">
+                    <h1>Treatment Plans</h1>
+                    <p>Evidence-based treatment suggestions for your condition</p>
+                </div>
+                <div class="treatment-grid" id="treatmentGrid">
+                    <div class="empty-state">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                        <h3>No Treatment Plans</h3>
+                        <p>Treatment plans will appear here after diagnosis</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Medicines Section -->
+            <section id="medicines-section" class="content-section">
+                <div class="section-header">
+                    <h1>Recommended Medicines</h1>
+                    <p>Safe and effective medications for your condition</p>
+                </div>
+                <div class="medicines-grid">
+                    <div class="empty-state">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        <h3>No Medicines Prescribed</h3>
+                        <p>Medicine recommendations will be shown after consultation</p>
+                        <div class="warning-box">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <p>Never self-medicate. Always consult a healthcare professional before taking any medication.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Doctors Section -->
+            <section id="doctors-section" class="content-section">
+                <div class="section-header">
+                    <h1>Find Doctors</h1>
+                    <p>Connect with qualified healthcare professionals</p>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search by specialty, name, or location...">
+                    <button class="btn-primary">Search</button>
+                </div>
+                <div class="doctors-grid">
+                    <div class="doctor-card">
+                        <img src="https://ui-avatars.com/api/?name=Dr+Sarah+Johnson&background=667eea&color=fff&size=80" alt="Doctor">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="specialty">Oncologist</p>
+                        <p class="experience">15 years experience</p>
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐ <span>4.9 (120 reviews)</span>
+                        </div>
+                        <button class="btn-secondary">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="https://ui-avatars.com/api/?name=Dr+Michael+Chen&background=10b981&color=fff&size=80" alt="Doctor">
+                        <h3>Dr. Michael Chen</h3>
+                        <p class="specialty">General Physician</p>
+                        <p class="experience">12 years experience</p>
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐ <span>4.8 (95 reviews)</span>
+                        </div>
+                        <button class="btn-secondary">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="https://ui-avatars.com/api/?name=Dr+Emily+Brown&background=f59e0b&color=fff&size=80" alt="Doctor">
+                        <h3>Dr. Emily Brown</h3>
+                        <p class="specialty">Cardiologist</p>
+                        <p class="experience">18 years experience</p>
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐ <span>5.0 (150 reviews)</span>
+                        </div>
+                        <button class="btn-secondary">Book Appointment</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hospitals Section -->
+            <section id="hospitals-section" class="content-section">
+                <div class="section-header">
+                    <h1>Nearby Hospitals</h1>
+                    <p>Find the closest healthcare facilities</p>
+                </div>
+                <div class="location-info">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>Showing hospitals near your location</span>
+                </div>
+                <div class="hospitals-list">
+                    <div class="hospital-card">
+                        <div class="hospital-info">
+                            <h3>City General Hospital</h3>
+                            <p>📍 2.3 km away • Open 24/7</p>
+                            <p>✓ Emergency Services • ICU • Cancer Center</p>
+                        </div>
+                        <button class="btn-primary">Get Directions</button>
+                    </div>
+                    <div class="hospital-card">
+                        <div class="hospital-info">
+                            <h3>MediCare Specialty Clinic</h3>
+                            <p>📍 3.8 km away • Open: 8 AM - 8 PM</p>
+                            <p>✓ Oncology • Cardiology • Neurology</p>
+                        </div>
+                        <button class="btn-primary">Get Directions</button>
+                    </div>
+                    <div class="hospital-card">
+                        <div class="hospital-info">
+                            <h3>Advanced Cancer Treatment Center</h3>
+                            <p>📍 5.2 km away • Open 24/7</p>
+                            <p>✓ Chemotherapy • Radiation • Surgery</p>
+                        </div>
+                        <button class="btn-primary">Get Directions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports-section" class="content-section">
+                <div class="section-header">
+                    <h1>Health Reports</h1>
+                    <p>View and download your consultation history</p>
+                </div>
+                <div class="reports-grid">
+                    <div class="empty-state">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <h3>No Reports Yet</h3>
+                        <p>Your health consultation reports will appear here</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history-section" class="content-section">
+                <div class="section-header">
+                    <h1>Consultation History</h1>
+                    <p>Track your previous consultations and follow-ups</p>
+                </div>
+                <div class="history-list">
+                    <div class="empty-state">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <h3>No History Yet</h3>
+                        <p>Your consultation history will be saved here</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
