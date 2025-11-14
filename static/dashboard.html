@@ -639,5 +639,45 @@
     </div>
 
     <script src="/static/dashboard.js"></script>
+    
+    <!-- Debug Script -->
+    <script>
+        console.log('✅ Dashboard loaded');
+        console.log('showSection function exists:', typeof showSection);
+        
+        // Backup navigation if main one fails
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Ready');
+            console.log('Total sections:', document.querySelectorAll('.content-section').length);
+            
+            // If showSection doesn't work, this will
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    const sectionName = href.replace('#', '');
+                    console.log('Clicked:', sectionName);
+                    
+                    // Hide all
+                    document.querySelectorAll('.content-section').forEach(s => {
+                        s.classList.remove('active');
+                    });
+                    
+                    // Show target
+                    const target = document.getElementById(sectionName + '-section');
+                    if (target) {
+                        target.classList.add('active');
+                        console.log('Activated:', sectionName + '-section');
+                    }
+                    
+                    // Update menu
+                    document.querySelectorAll('.menu-item').forEach(m => {
+                        m.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
