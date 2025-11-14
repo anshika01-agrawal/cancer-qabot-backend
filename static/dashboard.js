@@ -1,5 +1,12 @@
 // Navigation and Section Management
-function showSection(sectionName) {
+function showSection(sectionName, event) {
+    // Prevent default anchor behavior
+    if (event) {
+        event.preventDefault();
+    }
+    
+    console.log('showSection called with:', sectionName);
+    
     // Hide all sections
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(section => section.classList.remove('active'));
@@ -8,6 +15,9 @@ function showSection(sectionName) {
     const targetSection = document.getElementById(sectionName + '-section');
     if (targetSection) {
         targetSection.classList.add('active');
+        console.log('Showing section:', sectionName + '-section');
+    } else {
+        console.error('Section not found:', sectionName + '-section');
     }
     
     // Update active menu item
@@ -18,6 +28,9 @@ function showSection(sectionName) {
             item.classList.add('active');
         }
     });
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
