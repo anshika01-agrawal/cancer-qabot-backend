@@ -3,14 +3,44 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 import os
+from ml_model.symptom_checker import SymptomChecker
+from ml_model.knowledge_base import MedicalKnowledgeBase
 
 app = FastAPI()
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+# Global ML models
+symptom_checker = None
+knowledge_base = None
+
+@app.on_event("startup")
+async def load_models():
+    """Load ML models on application startup"""
+    global symptom_checker, knowledge_base
+    
+    print("Loading ML models...")
+    try:
+        symptom_checker = SymptomChecker()
+        symptom_checker.load_models()
+        print("✓ Symptom checker loaded")
+    except Exception as e:
+        print(f"⚠ Symptom checker not available: {e}")
+        print("  Run 'python train_model.py' to train the model first")
+    
+    try:
+        knowledge_base = MedicalKnowledgeBase()
+        knowledge_base.load_knowledge()
+        print("✓ Medical knowledge base loaded")
+    except Exception as e:
+        print(f"⚠ Knowledge base not available: {e}")
+
 class SymptomsRequest(BaseModel):
     symptoms: str
+
+class ChatRequest(BaseModel):
+    query: str
 
 # Serve landing page as root
 @app.get("/")
@@ -43,61 +73,80 @@ async def ask(query: str = ""):
 async def predict(request: SymptomsRequest):
     """
     AI/ML endpoint for disease prediction based on symptoms
-    
-    NOTE: This is a placeholder. For production, implement:
-    1. NLP preprocessing with spaCy or transformers
-    2. ML model (scikit-learn, TensorFlow, PyTorch)
-    3. Disease knowledge base with treatments
-    4. Critical condition detection logic
-    5. Doctor/hospital recommendation system
     """
-    
-    symptoms = request.symptoms.lower()
-    
-    # Simple keyword-based detection (placeholder for ML model)
-    if any(word in symptoms for word in ['chest pain', 'shortness of breath', 'heart attack']):
+    if not symptom_checker:
         return JSONResponse({
-            "disease": "Possible Cardiac Event",
-            "severity": "critical",
-            "treatment": "Seek immediate emergency care. Do not drive yourself.",
-            "recommendations": [
-                "Call emergency services (911)",
-                "Chew aspirin if not allergic",
-                "Find nearest emergency room"
-            ]
+            "error": "Model not loaded",
+            "message": "Please train the model first by running: python train_model.py"
+        }, status_code=503)
+    
+    try:
+        # Use ML model for prediction
+        result = symptom_checker.predict(request.symptoms)
+        
+        # Get detailed disease information
+        disease_info = symptom_checker.get_disease_info(result['disease'])
+        
+        return JSONResponse({
+            "disease": result['disease'],
+            "confidence": f"{result['confidence']:.1f}%",
+            "alternative_diagnoses": [
+                {"disease": d, "confidence": f"{c:.1f}%"} 
+                for d, c in result['top_predictions'][1:4]  # Top 3 alternatives
+            ],
+            "severity": disease_info.get('severity', 'unknown'),
+            "treatment": disease_info.get('treatment', 'Consult a healthcare provider'),
+            "specialists": disease_info.get('specialists', []),
+            "emergency_action": disease_info.get('emergency_action', ''),
+            "disclaimer": "This is an AI-based preliminary assessment. Always consult qualified medical professionals for proper diagnosis and treatment."
         })
     
-    elif any(word in symptoms for word in ['headache', 'fever', 'cough', 'cold']):
+    except Exception as e:
         return JSONResponse({
-            "disease": "Common Cold or Flu",
-            "severity": "mild",
-            "treatment": "Rest, hydration, over-the-counter medications",
-            "recommendations": [
-                "Take acetaminophen for fever",
-                "Drink plenty of fluids",
-                "Get adequate rest",
-                "Use throat lozenges for sore throat"
-            ]
+            "error": "Prediction failed",
+            "message": str(e)
+        }, status_code=500)
+
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    """
+    Medical Q&A endpoint using knowledge base
+    """
+    if not knowledge_base:
+        return JSONResponse({
+            "error": "Knowledge base not loaded",
+            "message": "Medical knowledge base is not available"
+        }, status_code=503)
+    
+    try:
+        # Search knowledge base
+        results = knowledge_base.search(request.query, top_k=3)
+        
+        if not results:
+            return JSONResponse({
+                "response": "I don't have specific information about that. Please consult with a healthcare professional for medical advice.",
+                "sources": []
+            })
+        
+        # Return top result as main response with sources
+        main_result = results[0]
+        
+        return JSONResponse({
+            "response": main_result['content'],
+            "topic": main_result['topic'],
+            "category": main_result['category'],
+            "related_topics": [
+                {"topic": r['topic'], "category": r['category']} 
+                for r in results[1:3]
+            ],
+            "disclaimer": "This information is for educational purposes only. Consult healthcare professionals for medical advice."
         })
     
-    elif any(word in symptoms for word in ['stomach pain', 'nausea', 'vomiting', 'diarrhea']):
+    except Exception as e:
         return JSONResponse({
-            "disease": "Gastroenteritis",
-            "severity": "moderate",
-            "treatment": "Hydration, bland diet, rest",
-            "recommendations": [
-                "Drink oral rehydration solution",
-                "Eat bland foods (BRAT diet)",
-                "Avoid dairy and fatty foods",
-                "Consult doctor if symptoms persist > 2 days"
-            ]
-        })
-    
-    else:
-        return JSONResponse({
-            "message": "I need more information to help you. Please describe your symptoms in detail.",
-            "suggestion": "Include: when symptoms started, severity, any triggers"
-        })
+            "error": "Chat failed",
+            "message": str(e)
+        }, status_code=500)
 
 # Correct entry point for Railway
 if __name__ == "__main__":

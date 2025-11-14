@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "topic": "Lung Cancer Early Symptoms",
+    "content": "Early symptoms of lung cancer include persistent cough lasting more than 3 weeks, chest pain that worsens with deep breathing or coughing, shortness of breath, and coughing up blood. Weight loss and fatigue are also common. Smokers and former smokers should be especially vigilant. Regular screening with low-dose CT scans is recommended for high-risk individuals.",
+    "category": "symptoms",
+    "tags": ["lung cancer", "symptoms", "early detection"]
+  },
+  {
+    "id": 2,
+    "topic": "Breast Cancer Self-Examination",
+    "content": "Monthly breast self-exams help detect changes early. Look for lumps, thickening, dimpling, skin changes, nipple discharge, or changes in breast size or shape. Perform exams after menstruation when breasts are less tender. Regular mammograms starting at age 40-45 are crucial for early detection. Report any changes to your doctor immediately.",
+    "category": "prevention",
+    "tags": ["breast cancer", "self-exam", "screening"]
+  },
+  {
+    "id": 3,
+    "topic": "Cancer Prevention Through Lifestyle",
+    "content": "Reduce cancer risk by: avoiding tobacco, maintaining healthy weight, exercising regularly (150 minutes/week), eating fruits and vegetables, limiting alcohol, protecting skin from sun, getting vaccinated (HPV, Hepatitis B), and regular health screenings. These lifestyle changes can prevent up to 50% of cancers.",
+    "category": "prevention",
+    "tags": ["prevention", "lifestyle", "diet"]
+  },
+  {
+    "id": 4,
+    "topic": "Chemotherapy Side Effects Management",
+    "content": "Common chemotherapy side effects include nausea, fatigue, hair loss, and weakened immunity. Manage nausea with anti-nausea medications and small frequent meals. Combat fatigue with rest and light exercise. Prevent infection by washing hands frequently and avoiding crowds. Stay hydrated and maintain good nutrition. Report severe side effects to your oncology team immediately.",
+    "category": "treatment",
+    "tags": ["chemotherapy", "side effects", "management"]
+  },
+  {
+    "id": 5,
+    "topic": "Understanding Cancer Stages",
+    "content": "Cancer stages range from 0-IV. Stage 0: localized abnormal cells. Stage I: small tumor, localized. Stage II-III: larger tumor, may involve lymph nodes. Stage IV: metastatic, spread to distant organs. Staging determines treatment approach and prognosis. TNM system (Tumor, Node, Metastasis) provides detailed staging information.",
+    "category": "diagnosis",
+    "tags": ["staging", "diagnosis", "TNM"]
+  },
+  {
+    "id": 6,
+    "topic": "Immunotherapy for Cancer",
+    "content": "Immunotherapy helps your immune system fight cancer. Types include checkpoint inhibitors, CAR T-cell therapy, cancer vaccines, and monoclonal antibodies. Effective for melanoma, lung cancer, kidney cancer, and others. Side effects differ from chemotherapy, mainly immune-related reactions. Discuss with oncologist if immunotherapy is appropriate for your cancer type.",
+    "category": "treatment",
+    "tags": ["immunotherapy", "treatment", "modern therapy"]
+  },
+  {
+    "id": 7,
+    "topic": "Genetic Testing for Cancer Risk",
+    "content": "Genetic testing identifies inherited mutations (BRCA1, BRCA2, Lynch syndrome) increasing cancer risk. Recommended if you have strong family history, early-onset cancer, or certain ethnic backgrounds. Results guide prevention strategies, screening schedules, and treatment decisions. Genetic counseling helps interpret results and plan next steps.",
+    "category": "diagnosis",
+    "tags": ["genetic testing", "BRCA", "hereditary cancer"]
+  },
+  {
+    "id": 8,
+    "topic": "Radiation Therapy Basics",
+    "content": "Radiation therapy uses high-energy rays to kill cancer cells. External beam radiation targets tumor from outside body. Brachytherapy places radioactive material inside body near cancer. Treatment is typically daily for several weeks. Side effects depend on treatment area and may include fatigue, skin changes, and localized symptoms. Modern techniques minimize damage to healthy tissue.",
+    "category": "treatment",
+    "tags": ["radiation", "treatment", "therapy"]
+  },
+  {
+    "id": 9,
+    "topic": "Nutrition During Cancer Treatment",
+    "content": "Maintain nutrition with small frequent meals, high-protein foods, plenty of fluids, and nutrient-dense options. Combat taste changes with herbs and spices. Manage mouth sores with soft, bland foods. Consult dietitian for personalized meal plan. Good nutrition supports immune system, maintains strength, and helps treatment tolerance. Supplements may be needed if eating is difficult.",
+    "category": "lifestyle",
+    "tags": ["nutrition", "diet", "wellness"]
+  },
+  {
+    "id": 10,
+    "topic": "Cancer Screening Guidelines",
+    "content": "Recommended screenings: Mammogram (40-45+ annually), Colonoscopy (45-50+ every 10 years), Pap smear (21+ every 3 years), Lung CT (high-risk smokers 50-80), PSA test (discuss with doctor 50+). Early detection dramatically improves survival rates. Follow personalized screening schedule based on risk factors and family history.",
+    "category": "prevention",
+    "tags": ["screening", "early detection", "prevention"]
+  },
+  {
+    "id": 11,
+    "topic": "Managing Cancer Pain",
+    "content": "Cancer pain management includes medications (NSAIDs, opioids), nerve blocks, radiation, physical therapy, and complementary therapies (acupuncture, massage). Use pain scale (0-10) to communicate severity. Don't delay pain medication - it's most effective when taken before pain becomes severe. Work with palliative care team for comprehensive pain management plan.",
+    "category": "supportive care",
+    "tags": ["pain management", "palliative care", "quality of life"]
+  },
+  {
+    "id": 12,
+    "topic": "Targeted Therapy Explained",
+    "content": "Targeted therapy drugs attack specific cancer cell characteristics or genes. Examples: HER2 inhibitors for breast cancer, EGFR inhibitors for lung cancer, BRAF inhibitors for melanoma. Requires genetic testing of tumor to identify targets. Often combined with chemotherapy or immunotherapy. Side effects generally milder than traditional chemotherapy but vary by drug.",
+    "category": "treatment",
+    "tags": ["targeted therapy", "precision medicine", "treatment"]
+  },
+  {
+    "id": 13,
+    "topic": "Emotional Support During Cancer",
+    "content": "Cancer affects mental health. Seek support from counselors, support groups, family, and friends. Depression and anxiety are common and treatable. Practice stress-reduction techniques: meditation, yoga, journaling. Maintain social connections and hobbies when possible. Ask healthcare team about mental health resources. Taking care of emotional well-being is as important as physical treatment.",
+    "category": "supportive care",
+    "tags": ["mental health", "support", "wellness"]
+  },
+  {
+    "id": 14,
+    "topic": "Clinical Trials for Cancer",
+    "content": "Clinical trials test new treatments before general availability. Participants may access cutting-edge therapies. Phases: I (safety), II (efficacy), III (comparison to standard treatment), IV (long-term effects). Enrollment criteria vary. Trials are voluntary and you can leave anytime. Ask oncologist about relevant trials. Visit clinicaltrials.gov for available studies.",
+    "category": "treatment",
+    "tags": ["clinical trials", "research", "new treatments"]
+  },
+  {
+    "id": 15,
+    "topic": "Cancer Survivor Wellness",
+    "content": "After treatment: maintain healthy lifestyle, attend follow-up appointments, watch for recurrence signs, manage long-term side effects, practice self-care. Survivorship care plan outlines monitoring schedule and health recommendations. Join survivor support groups. Focus on physical rehabilitation, emotional healing, and life quality. Many survivors live full, active lives.",
+    "category": "survivorship",
+    "tags": ["survivors", "follow-up", "wellness"]
+  }
+]

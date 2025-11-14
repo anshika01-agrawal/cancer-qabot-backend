@@ -1,0 +1,158 @@
+{
+  "lung_cancer": {
+    "name": "Lung Cancer",
+    "symptoms": [
+      "persistent cough",
+      "chest pain",
+      "shortness of breath",
+      "coughing blood",
+      "weight loss",
+      "fatigue",
+      "hoarseness"
+    ],
+    "severity": "critical",
+    "treatment": "Treatment depends on stage and may include surgery, chemotherapy, radiation therapy, targeted therapy, or immunotherapy. Early detection significantly improves outcomes.",
+    "specialists": ["Oncologist", "Pulmonologist", "Thoracic Surgeon"],
+    "emergency_action": "Seek immediate medical attention if coughing blood or experiencing severe breathing difficulty"
+  },
+  "breast_cancer": {
+    "name": "Breast Cancer",
+    "symptoms": [
+      "breast lump",
+      "breast pain",
+      "nipple discharge",
+      "skin changes",
+      "breast swelling",
+      "dimpling",
+      "redness"
+    ],
+    "severity": "critical",
+    "treatment": "Options include surgery (lumpectomy or mastectomy), chemotherapy, radiation, hormone therapy, and targeted therapy. Treatment is personalized based on cancer type and stage.",
+    "specialists": ["Oncologist", "Breast Surgeon", "Radiation Oncologist"],
+    "emergency_action": "Schedule immediate consultation with breast specialist for proper evaluation and biopsy if needed"
+  },
+  "colon_cancer": {
+    "name": "Colon Cancer",
+    "symptoms": [
+      "blood in stool",
+      "abdominal pain",
+      "weight loss",
+      "change in bowel habits",
+      "fatigue",
+      "weakness",
+      "rectal bleeding"
+    ],
+    "severity": "high",
+    "treatment": "Primary treatment is surgery to remove the tumor. May be combined with chemotherapy and radiation therapy depending on stage.",
+    "specialists": ["Gastroenterologist", "Oncologist", "Colorectal Surgeon"],
+    "emergency_action": "Consult gastroenterologist for colonoscopy and proper diagnosis"
+  },
+  "brain_tumor": {
+    "name": "Brain Tumor",
+    "symptoms": [
+      "headache",
+      "vision problems",
+      "nausea",
+      "vomiting",
+      "seizures",
+      "memory loss",
+      "balance issues"
+    ],
+    "severity": "critical",
+    "treatment": "Treatment includes surgery, radiation therapy, and chemotherapy. Steroids may be used to reduce swelling.",
+    "specialists": ["Neurosurgeon", "Neuro-oncologist", "Radiation Oncologist"],
+    "emergency_action": "Seek immediate medical care for severe headaches, seizures, or sudden vision changes"
+  },
+  "prostate_cancer": {
+    "name": "Prostate Cancer",
+    "symptoms": [
+      "difficulty urinating",
+      "blood in urine",
+      "pelvic pain",
+      "bone pain",
+      "erectile dysfunction",
+      "frequent urination"
+    ],
+    "severity": "moderate",
+    "treatment": "Options include active surveillance, surgery, radiation therapy, hormone therapy, and chemotherapy based on cancer aggressiveness and patient age.",
+    "specialists": ["Urologist", "Oncologist"],
+    "emergency_action": "Schedule consultation with urologist for PSA testing and examination"
+  },
+  "lymphoma": {
+    "name": "Lymphoma",
+    "symptoms": [
+      "swollen lymph nodes",
+      "fatigue",
+      "night sweats",
+      "fever",
+      "weight loss",
+      "itching"
+    ],
+    "severity": "high",
+    "treatment": "Treatment includes chemotherapy, radiation therapy, immunotherapy, and stem cell transplant depending on type and stage.",
+    "specialists": ["Hematologist", "Oncologist"],
+    "emergency_action": "Consult hematologist for blood tests and lymph node biopsy"
+  },
+  "skin_cancer": {
+    "name": "Skin Cancer (Melanoma)",
+    "symptoms": [
+      "new mole",
+      "changing mole",
+      "irregular borders",
+      "color changes",
+      "bleeding mole",
+      "itching"
+    ],
+    "severity": "moderate",
+    "treatment": "Early stage: surgical removal. Advanced: immunotherapy, targeted therapy, chemotherapy, or radiation.",
+    "specialists": ["Dermatologist", "Oncologist", "Plastic Surgeon"],
+    "emergency_action": "See dermatologist for skin examination and biopsy of suspicious lesions"
+  },
+  "leukemia": {
+    "name": "Leukemia",
+    "symptoms": [
+      "fatigue",
+      "frequent infections",
+      "easy bruising",
+      "bleeding",
+      "fever",
+      "weight loss",
+      "bone pain"
+    ],
+    "severity": "critical",
+    "treatment": "Chemotherapy, targeted therapy, radiation, and stem cell transplant. Treatment varies by leukemia type.",
+    "specialists": ["Hematologist", "Oncologist"],
+    "emergency_action": "Seek immediate medical care for unexplained bleeding, severe infections, or high fever"
+  },
+  "pancreatic_cancer": {
+    "name": "Pancreatic Cancer",
+    "symptoms": [
+      "abdominal pain",
+      "jaundice",
+      "weight loss",
+      "loss of appetite",
+      "nausea",
+      "dark urine",
+      "pale stools"
+    ],
+    "severity": "critical",
+    "treatment": "Surgery (Whipple procedure), chemotherapy, radiation therapy. Often diagnosed at advanced stages.",
+    "specialists": ["Gastroenterologist", "Oncologist", "Pancreatic Surgeon"],
+    "emergency_action": "Consult gastroenterologist immediately for jaundice or severe abdominal pain"
+  },
+  "ovarian_cancer": {
+    "name": "Ovarian Cancer",
+    "symptoms": [
+      "abdominal bloating",
+      "pelvic pain",
+      "difficulty eating",
+      "frequent urination",
+      "weight loss",
+      "fatigue"
+    ],
+    "severity": "high",
+    "treatment": "Surgery to remove tumors followed by chemotherapy. May include targeted therapy.",
+    "specialists": ["Gynecologic Oncologist", "Oncologist"],
+    "emergency_action": "See gynecologist for pelvic examination and imaging studies"
+  }
+}
