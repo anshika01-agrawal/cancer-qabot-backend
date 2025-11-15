@@ -5,6 +5,7 @@ from pydantic import BaseModel
 import os
 from ml_model.symptom_checker import SymptomChecker
 from ml_model.knowledge_base import MedicalKnowledgeBase
+from ml_model.ai_chatbot import get_chatbot
 
 app = FastAPI()
 
@@ -14,11 +15,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Global ML models
 symptom_checker = None
 knowledge_base = None
+ai_chatbot = None
 
 @app.on_event("startup")
 async def load_models():
     """Load ML models on application startup"""
-    global symptom_checker, knowledge_base
+    global symptom_checker, knowledge_base, ai_chatbot
     
     print("Loading ML models...")
     try:
@@ -35,6 +37,13 @@ async def load_models():
         print("✓ Medical knowledge base loaded")
     except Exception as e:
         print(f"⚠ Knowledge base not available: {e}")
+    
+    try:
+        ai_chatbot = get_chatbot()
+        print("✓ AI Chatbot initialized (Hugging Face)")
+    except Exception as e:
+        print(f"⚠ AI Chatbot not available: {e}")
+        print("  Add HUGGINGFACE_API_KEY to .env file")
 
 class SymptomsRequest(BaseModel):
     symptoms: str
@@ -110,8 +119,23 @@ async def predict(request: SymptomsRequest):
 @app.post("/chat")
 async def chat(request: ChatRequest):
     """
-    Medical Q&A endpoint using knowledge base
+    Medical Q&A endpoint with AI chatbot integration
+    Falls back to knowledge base if AI is not available
     """
+    # Try AI chatbot first (Hugging Face)
+    if ai_chatbot and ai_chatbot.client:
+        try:
+            result = ai_chatbot.chat(request.query)
+            return JSONResponse({
+                "response": result['response'],
+                "source": "ai",
+                "model": result.get('model', 'huggingface'),
+                "powered_by": "Hugging Face"
+            })
+        except Exception as e:
+            print(f"AI chat failed, falling back to knowledge base: {e}")
+    
+    # Fallback to local knowledge base
     if not knowledge_base:
         return JSONResponse({
             "error": "Knowledge base not loaded",
@@ -125,6 +149,7 @@ async def chat(request: ChatRequest):
         if not results:
             return JSONResponse({
                 "response": "I don't have specific information about that. Please consult with a healthcare professional for medical advice.",
+                "source": "fallback",
                 "sources": []
             })
         
@@ -135,6 +160,7 @@ async def chat(request: ChatRequest):
             "response": main_result['content'],
             "topic": main_result['topic'],
             "category": main_result['category'],
+            "source": "knowledge_base",
             "related_topics": [
                 {"topic": r['topic'], "category": r['category']} 
                 for r in results[1:3]
