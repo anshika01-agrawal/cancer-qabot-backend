@@ -1,0 +1,130 @@
+{
+  "indore": {
+    "oncologists": [
+      {
+        "name": "Dr. Rajesh Sharma",
+        "specialty": "Medical Oncologist",
+        "hospital": "Bombay Hospital, Indore",
+        "address": "Scheme No. 94, Ring Road, Indore - 452010",
+        "phone": "+91 731 4242100",
+        "experience": "18 years",
+        "fee": "₹1000",
+        "timings": "Mon-Sat: 10:00 AM - 6:00 PM",
+        "rating": 4.5
+      },
+      {
+        "name": "Dr. Priya Malhotra",
+        "specialty": "Surgical Oncologist",
+        "hospital": "CHL Hospital, Indore",
+        "address": "A.B. Road, Near Choithram Crossing, Indore - 452001",
+        "phone": "+91 731 4044444",
+        "experience": "15 years",
+        "fee": "₹900",
+        "timings": "Mon-Fri: 9:00 AM - 5:00 PM",
+        "rating": 4.7
+      },
+      {
+        "name": "Dr. Amit Patel",
+        "specialty": "Radiation Oncologist",
+        "hospital": "Apollo Hospital, Indore",
+        "address": "Scheme 74C, Vijay Nagar, Indore - 452010",
+        "phone": "+91 731 4567890",
+        "experience": "12 years",
+        "fee": "₹800",
+        "timings": "Mon-Sat: 11:00 AM - 7:00 PM",
+        "rating": 4.3
+      }
+    ],
+    "endocrinologists": [
+      {
+        "name": "Dr. Sneha Agrawal",
+        "specialty": "Endocrinologist",
+        "hospital": "Medanta Hospital, Indore",
+        "address": "Vijay Nagar, Indore - 452010",
+        "phone": "+91 731 4988888",
+        "experience": "10 years",
+        "fee": "₹700",
+        "timings": "Mon-Sat: 10:00 AM - 2:00 PM, 5:00 PM - 8:00 PM",
+        "rating": 4.6
+      },
+      {
+        "name": "Dr. Vikram Singh",
+        "specialty": "Endocrinologist & Diabetologist",
+        "hospital": "Greater Kailash Hospital, Indore",
+        "address": "M.G. Road, Indore - 452001",
+        "phone": "+91 731 2545678",
+        "experience": "14 years",
+        "fee": "₹750",
+        "timings": "Tue-Sun: 9:00 AM - 1:00 PM",
+        "rating": 4.4
+      }
+    ],
+    "general_physicians": [
+      {
+        "name": "Dr. Kavita Joshi",
+        "specialty": "General Physician",
+        "hospital": "Choithram Hospital, Indore",
+        "address": "Manik Bagh Road, Indore - 452014",
+        "phone": "+91 731 2566666",
+        "experience": "20 years",
+        "fee": "₹500",
+        "timings": "Mon-Sat: 8:00 AM - 10:00 AM, 6:00 PM - 9:00 PM",
+        "rating": 4.5
+      }
+    ]
+  },
+  "bangalore": {
+    "oncologists": [
+      {
+        "name": "Dr. Suresh Kumar",
+        "specialty": "Medical Oncologist",
+        "hospital": "Manipal Hospital, Bangalore",
+        "address": "98, HAL Airport Road, Bangalore - 560017",
+        "phone": "+91 80 25023344",
+        "experience": "22 years",
+        "fee": "₹1200",
+        "timings": "Mon-Fri: 10:00 AM - 5:00 PM",
+        "rating": 4.8
+      },
+      {
+        "name": "Dr. Anjali Reddy",
+        "specialty": "Breast Cancer Specialist",
+        "hospital": "Fortis Hospital, Bangalore",
+        "address": "Bannerghatta Road, Bangalore - 560076",
+        "phone": "+91 80 66214444",
+        "experience": "16 years",
+        "fee": "₹1100",
+        "timings": "Mon-Sat: 2:00 PM - 7:00 PM",
+        "rating": 4.7
+      }
+    ],
+    "endocrinologists": [
+      {
+        "name": "Dr. Ramesh Iyer",
+        "specialty": "Endocrinologist",
+        "hospital": "Apollo Hospital, Bangalore",
+        "address": "Bannerghatta Road, Bangalore - 560076",
+        "phone": "+91 80 26304050",
+        "experience": "18 years",
+        "fee": "₹850",
+        "timings": "Mon-Sat: 9:00 AM - 4:00 PM",
+        "rating": 4.6
+      }
+    ]
+  },
+  "mumbai": {
+    "oncologists": [
+      {
+        "name": "Dr. Neeraj Mehta",
+        "specialty": "Medical Oncologist",
+        "hospital": "Tata Memorial Hospital, Mumbai",
+        "address": "Dr. E Borges Road, Parel, Mumbai - 400012",
+        "phone": "+91 22 24177000",
+        "experience": "25 years",
+        "fee": "₹1500",
+        "timings": "Mon-Fri: 11:00 AM - 4:00 PM",
+        "rating": 4.9
+      }
+    ]
+  }
+}
