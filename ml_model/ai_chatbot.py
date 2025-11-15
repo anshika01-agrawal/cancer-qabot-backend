@@ -1,56 +1,59 @@
 """
-AI Chatbot using Hugging Face Inference API
-Provides intelligent medical Q&A responses
+AI Chatbot using Google Gemini API
+Provides intelligent, empathetic medical Q&A responses
 """
 
-from huggingface_hub import InferenceClient
+import google.generativeai as genai
 from config import Config
 
 class AIChatbot:
     """
-    AI-powered chatbot using Hugging Face models
-    Specialized for medical queries with safety guidelines
+    AI-powered chatbot using Google Gemini
+    Specialized for medical queries with empathetic, safe responses
     """
     
     def __init__(self):
-        """Initialize Hugging Face client"""
+        """Initialize Google Gemini client"""
         try:
-            Config.validate()
-            self.client = InferenceClient(token=Config.HUGGINGFACE_API_KEY)
-            self.model = Config.HUGGINGFACE_MODEL
-            print(f"✓ AI Chatbot initialized with model: {self.model}")
+            if Config.GOOGLE_API_KEY:
+                genai.configure(api_key=Config.GOOGLE_API_KEY)
+                self.model = genai.GenerativeModel('gemini-2.0-flash')
+                self.client = True
+                print(f"✓ AI Chatbot initialized with Google Gemini 2.0")
+            else:
+                print("⚠ Google API key not found")
+                self.client = None
         except Exception as e:
             print(f"⚠ AI Chatbot initialization failed: {e}")
             self.client = None
     
     def _create_medical_prompt(self, user_query):
         """
-        Create a medical-specific prompt with safety guidelines
+        Create a medical-specific prompt for Gemini with safety guidelines
         """
-        system_prompt = """You are a helpful medical information assistant for a cancer awareness chatbot. 
-Your role is to provide educational information about cancer symptoms, prevention, and general health guidance.
+        system_context = f"""You are a helpful, empathetic medical information assistant. Your role is to provide supportive, educational information about health concerns.
 
 IMPORTANT GUIDELINES:
-1. Always emphasize that you provide educational information, not medical diagnosis
-2. Recommend consulting healthcare professionals for actual medical advice
-3. Be empathetic and supportive in your responses
-4. Provide accurate, evidence-based information
-5. If asked about specific diagnosis, remind users to see a doctor
-6. Include relevant prevention tips and healthy lifestyle recommendations
+1. Be warm, empathetic, and reassuring - never alarm the user
+2. Provide educational information, NOT medical diagnosis
+3. Always recommend consulting healthcare professionals
+4. If symptoms sound serious, gently suggest seeing a doctor without scaring them
+5. Give practical, helpful advice
+6. Be conversational and supportive
 
-User Question: {query}
+User's question: {user_query}
 
-Provide a helpful, informative response (max 300 words):"""
+Provide a helpful, empathetic response (2-3 paragraphs):"""
         
-        return system_prompt.format(query=user_query)
+        return system_context
     
     def chat(self, user_message, max_tokens=None, temperature=None):
         """
-        Get AI response for user message
+        Get AI response for user message using Google Gemini
         
         Args:
             user_message (str): User's question or message
-            max_tokens (int): Maximum response length
+            max_tokens (int): Maximum response length (not used in Gemini)
             temperature (float): Response creativity (0.0-1.0)
             
         Returns:
@@ -58,46 +61,37 @@ Provide a helpful, informative response (max 300 words):"""
         """
         if not self.client:
             return {
-                'response': 'AI service is not available. Please check configuration.',
+                'response': 'AI service is not available. Using fallback knowledge base.',
                 'source': 'error',
                 'model': None
             }
         
         try:
-            # Prepare prompt
+            # Create empathetic medical prompt
             prompt = self._create_medical_prompt(user_message)
             
-            # Set parameters
-            max_tokens = max_tokens or Config.MAX_TOKENS
-            temperature = temperature or Config.TEMPERATURE
+            # Generate response with Gemini
+            response = self.model.generate_content(prompt)
             
-            # Call Hugging Face API
-            response = self.client.text_generation(
-                prompt,
-                model=self.model,
-                max_new_tokens=max_tokens,
-                temperature=temperature,
-                return_full_text=False
-            )
+            # Extract text
+            ai_text = response.text
             
             # Add medical disclaimer
-            disclaimer = "\n\n⚠️ Disclaimer: This is educational information only. Always consult qualified healthcare professionals for medical advice, diagnosis, or treatment."
+            disclaimer = "\n\n💡 *This is educational information only. For proper medical advice, please consult with a qualified healthcare professional.*"
             
             return {
-                'response': response.strip() + disclaimer,
-                'source': 'huggingface',
-                'model': self.model,
+                'response': ai_text.strip() + disclaimer,
+                'source': 'gemini',
+                'model': 'gemini-pro',
                 'disclaimer': disclaimer
             }
             
         except Exception as e:
-            print(f"❌ AI chat error: {e}")
-            
-            # Fallback response
+            print(f"❌ Gemini error: {e}")
             return {
-                'response': f"I encountered an error processing your question. Please try rephrasing or contact support. Error: {str(e)}",
+                'response': 'AI temporarily unavailable. Using fallback knowledge base.',
                 'source': 'error',
-                'model': self.model
+                'model': 'gemini-pro'
             }
     
     def get_quick_response(self, topic):

@@ -10,15 +10,12 @@ load_dotenv()
 class Config:
     """Application configuration"""
     
-    # Hugging Face API
-    HUGGINGFACE_API_KEY = os.getenv('HUGGINGFACE_API_KEY')
-    HUGGINGFACE_MODEL = os.getenv('HUGGINGFACE_MODEL', 'microsoft/BioGPT-Large')
+    # Google Gemini API (Primary - Free & Working)
+    GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
     
-    # Alternative models you can use:
-    # - 'microsoft/BioGPT-Large' (Medical text generation - RECOMMENDED)
-    # - 'dmis-lab/biobert-base-cased-v1.2' (Medical NER and classification)
-    # - 'emilyalsentzer/Bio_ClinicalBERT' (Clinical notes understanding)
-    # - 'google/flan-t5-large' (General purpose, good for Q&A)
+    # Hugging Face API (Backup)
+    HUGGINGFACE_API_KEY = os.getenv('HUGGINGFACE_API_KEY')
+    HUGGINGFACE_MODEL = os.getenv('HUGGINGFACE_MODEL', 'facebook/blenderbot-400M-distill')
     
     # API settings
     MAX_TOKENS = int(os.getenv('MAX_TOKENS', 500))
@@ -27,17 +24,18 @@ class Config:
     @classmethod
     def validate(cls):
         """Validate that required config is present"""
-        if not cls.HUGGINGFACE_API_KEY:
-            raise ValueError(
-                "HUGGINGFACE_API_KEY not found! "
-                "Please create .env file with your Hugging Face token. "
-                "Get it from: https://huggingface.co/settings/tokens"
+        if not cls.GOOGLE_API_KEY and not cls.HUGGINGFACE_API_KEY:
+            print(
+                "⚠️ No API keys found! "
+                "Add GOOGLE_API_KEY to .env file. "
+                "Get it from: https://aistudio.google.com/app/apikey"
             )
+            return False
         return True
 
 # Validate on import
 try:
-    Config.validate()
-    print("✓ Configuration loaded successfully")
-except ValueError as e:
+    if Config.validate():
+        print("✓ Configuration loaded successfully")
+except Exception as e:
     print(f"⚠ Configuration warning: {e}")
