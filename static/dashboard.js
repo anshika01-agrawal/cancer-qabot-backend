@@ -100,35 +100,20 @@ function sendMessage() {
     // Show typing indicator
     showTypingIndicator();
     
-    // Send to backend
-    fetch('/predict', {
+    // Send to AI chatbot endpoint (using Gemini AI)
+    fetch('/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ symptoms: message })
+        body: JSON.stringify({ query: message })
     })
     .then(response => response.json())
     .then(data => {
         removeTypingIndicator();
         
-        // Format response
-        let responseText = '';
-        if (data.disease) {
-            responseText = `Based on your symptoms, you might have **${data.disease}**.\n\n`;
-            
-            if (data.treatment) {
-                responseText += `**Recommended Treatment:**\n${data.treatment}\n\n`;
-            }
-            
-            if (data.severity === 'critical') {
-                responseText += `⚠️ **Critical Condition Detected!**\nPlease consult a doctor immediately. Check the "Find Doctors" section for specialists near you.`;
-            } else {
-                responseText += `💊 You can also check the "Medicines" section for recommended medications.`;
-            }
-        } else {
-            responseText = data.message || "I'm analyzing your symptoms. Could you provide more details?";
-        }
+        // Display AI response directly
+        let responseText = data.response || "I'm here to help! Could you tell me more about your symptoms?";
         
         addMessage(responseText, 'bot');
     })
